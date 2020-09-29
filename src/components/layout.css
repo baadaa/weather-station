@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap");
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font: 112.5%/1.45em georgia, serif, sans-serif;
+  font: 20px/1.45 "Poppins", Helvetica, Arial, sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -9,8 +11,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  background: #000;
+  color: #fff;
+  font-family: inherit;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
