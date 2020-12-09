@@ -27,19 +27,21 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family: Poppins, sans-serif;
     padding: 0;
-    background: var(--hp-off-white);
-    color: var(--hp-indigo);
     /* font-size: 10px; */
   }
   body {
     transition: background .2s, color .2s;
-    &.light {
-      background: var(--hp-off-white);
-      color: var(--hp-indigo);
-    }
+    background: var(--hp-off-white);
+    color: var(--hp-indigo);
+    --nav-highlight: var(--hp-coolgray);
+    --text-color: var(--hp-indigo);
+    --menu-bg: var(--hp-off-white);
     &.dark {
-      background: var(--hp-indigo);
+      background: var(--hp-cold-black);
       color:var(--hp-off-white);
+      --nav-highlight: var(--hp-indigo);
+      --text-color: var(--hp-medium-gray);
+      --menu-bg: var(--hp-navy);
     }
     margin: 0;
     padding: 0;

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { ViewContext } from '../hooks/contexts';
 import { getTime, getDate } from '../utils/timeUtils';
 import Icon, {
   SunriseIcon,
@@ -34,7 +35,8 @@ const Wrapper = styled.div`
     padding-top: 0.25rem;
   }
 `;
-const DailyWeather = ({ daily, view }) => {
+const DailyWeather = ({ daily }) => {
+  const { view } = useContext(ViewContext);
   if (view !== 'daily') return null;
   const str = daily.map(day => {
     const dateStr = getDate(day.dt, {

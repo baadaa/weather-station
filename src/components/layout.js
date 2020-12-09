@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ColorModeContext } from '../hooks/contexts';
+import { ColorModeContext, ViewContext } from '../hooks/contexts';
 import GlobalStyles from '../styles/GlobalStyles';
 import Nav from './nav';
 import './layout.css';
@@ -22,32 +22,36 @@ const Wrapper = styled.div`
 `;
 const Layout = ({ children }) => {
   const [theme, setTheme] = useState('light');
-  const value = { theme, setTheme };
+  const [view, setView] = useState('current');
+  const colorMode = { theme, setTheme };
+  const viewMode = { view, setView };
   return (
     <Wrapper>
       <GlobalStyles />
-      <ColorModeContext.Provider value={value}>
-        <Nav />
-        <main>{children}</main>
-        <footer
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            height: '1rem',
-            opacity: 0.5,
-            border: '1px solid red',
-            fontSize: 'small',
-          }}
-        >
-          © {new Date().getFullYear()}, {` `}
-          <a
-            style={{ textDecoration: 'none', color: 'white' }}
-            href="https://www.basinbald.com"
+      <ColorModeContext.Provider value={colorMode}>
+        <ViewContext.Provider value={viewMode}>
+          <Nav />
+          <main>{children}</main>
+          <footer
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              height: '1rem',
+              opacity: 0.5,
+              border: '1px solid red',
+              fontSize: 'small',
+            }}
           >
-            Bumhan Yu
-          </a>
-        </footer>
+            © {new Date().getFullYear()}, {` `}
+            <a
+              style={{ textDecoration: 'none', color: 'white' }}
+              href="https://www.basinbald.com"
+            >
+              Bumhan Yu
+            </a>
+          </footer>
+        </ViewContext.Provider>
       </ColorModeContext.Provider>
     </Wrapper>
   );

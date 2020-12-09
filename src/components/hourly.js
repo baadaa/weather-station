@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Icon from './icons';
 import { getTime, getDate } from '../utils/timeUtils';
+import { ViewContext } from '../hooks/contexts';
 
-const HourlyWeather = ({ hourly, view }) => {
+const HourlyWeather = ({ hourly }) => {
+  const { view } = useContext(ViewContext);
   if (view !== 'hourly') return null;
   const str = hourly.map(hour => {
     const { dt, pop, temp, weather } = hour;

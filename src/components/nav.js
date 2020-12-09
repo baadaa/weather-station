@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import '../styles/hamburgers.css';
-import { ColorModeContext } from '../hooks/contexts';
+import { ColorModeContext, ViewContext } from '../hooks/contexts';
 
 const Nav = styled.nav`
   max-width: 1000px;
@@ -18,23 +18,36 @@ const Nav = styled.nav`
     right: 0;
     list-style: none;
     padding: 1rem 0;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
     margin: 0;
     opacity: 0;
     transition: transform 0.3s, opacity 0.3s;
     pointer-events: none;
-    background: #fff;
+    background: var(--menu-bg);
     &[data-active='true'] {
       opacity: 1;
-      transform: translateY(8rem);
+      transform: translateY(6rem);
       pointer-events: all;
     }
   }
   li {
-    padding: 1rem 0;
-    font-size: 1.5rem;
-    color: var(--hp-dark-gray);
+    font-size: 1.1rem;
+    margin: 0;
+    button {
+      color: var(--text-color);
+      border: none;
+      cursor: pointer;
+      padding: 0 1rem;
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      &:focus {
+        outline: none;
+        color: var(--text-color);
+        background: var(--nav-highlight);
+      }
+    }
   }
   .buttonArea {
     z-index: 100;
@@ -59,14 +72,11 @@ const Nav = styled.nav`
 function Header() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { theme, setTheme } = useContext(ColorModeContext);
-  console.log(theme);
+  const { setView } = useContext(ViewContext);
+  const views = ['current', 'daily', 'hourly'];
   const colorSwitcher = currentTheme => {
     setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    if (currentTheme === 'light') {
-      document.body.className = 'dark';
-    } else {
-      document.body.className = '';
-    }
+    document.body.className = currentTheme === 'light' ? 'dark' : '';
   };
   return (
     <Nav>
@@ -91,6 +101,13 @@ function Header() {
             SWITCH
           </button>
         </li>
+        {views.map(viewMode => (
+          <li key={viewMode}>
+            <button type="button" onClick={() => setView(viewMode)}>
+              {viewMode}
+            </button>
+          </li>
+        ))}
       </ul>
     </Nav>
   );

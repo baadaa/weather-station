@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { ViewContext } from '../hooks/contexts';
 
 import { getTime, getDate } from '../utils/timeUtils';
 import Icon, {
@@ -76,7 +77,8 @@ const Weather = styled.div`
   }
 `;
 
-const CurrentWeather = ({ current, daily, view }) => {
+const CurrentWeather = ({ current, daily }) => {
+  const { view } = useContext(ViewContext);
   if (view !== 'current') return null;
   const { sunrise, sunset, temp, weather: currentWeather } = current;
   const { main, description, icon } = currentWeather[0];
