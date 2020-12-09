@@ -47,7 +47,6 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     min-height: 100vh;
     position: relative;
-    padding-bottom: 10rem;
   }
   *, * > * {
     box-sizing: border-box;

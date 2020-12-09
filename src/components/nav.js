@@ -17,8 +17,8 @@ const Nav = styled.nav`
     position: absolute;
     right: 0;
     list-style: none;
-    padding: 1rem 0;
-    border-radius: 1rem;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
     margin: 0;
     opacity: 0;
@@ -32,21 +32,28 @@ const Nav = styled.nav`
     }
   }
   li {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     margin: 0;
     button {
       color: var(--text-color);
       border: none;
       cursor: pointer;
-      padding: 0 1rem;
+      display: block;
+      text-transform: capitalize;
+      padding: 0.25rem 1rem;
       width: 100%;
       text-align: left;
+      white-space: nowrap;
       background: transparent;
       &:focus {
         outline: none;
         color: var(--text-color);
         background: var(--nav-highlight);
       }
+    }
+    hr {
+      margin: 0.5rem 0;
+      border-color: var(--text-color);
     }
   }
   .buttonArea {
@@ -96,18 +103,21 @@ function Header() {
         </button>
       </div>
       <ul data-active={!isCollapsed} className="nav">
-        <li>
-          <button type="button" onClick={() => colorSwitcher(theme)}>
-            SWITCH
-          </button>
-        </li>
         {views.map(viewMode => (
           <li key={viewMode}>
             <button type="button" onClick={() => setView(viewMode)}>
-              {viewMode}
+              {viewMode} Weather
             </button>
           </li>
         ))}
+        <li>
+          <hr />
+        </li>
+        <li>
+          <button type="button" onClick={() => colorSwitcher(theme)}>
+            {`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          </button>
+        </li>
       </ul>
     </Nav>
   );

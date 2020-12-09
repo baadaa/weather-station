@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ViewContext } from '../hooks/contexts';
 
-import { getTime, getDate } from '../utils/timeUtils';
+import { getTime } from '../utils/timeUtils';
 import Icon, {
   SunriseIcon,
   SunsetIcon,
@@ -11,10 +11,9 @@ import Icon, {
 } from './icons';
 
 const Weather = styled.div`
-  h5 {
-    text-align: center;
-    margin: 0;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   .main,
   .detail {
     display: flex;
@@ -24,7 +23,9 @@ const Weather = styled.div`
     align-content: center;
   }
   .main {
+    /* flex: 1; */
     min-height: 15rem;
+    font-size: 1rem;
     h3 {
       flex-basis: 100%;
       text-align: center;
@@ -35,8 +36,8 @@ const Weather = styled.div`
       margin: 0;
     }
     h2 {
-      font-size: 2.5rem;
-      margin-left: 1.5rem;
+      font-size: 7em;
+      margin-left: 0.25em;
       font-weight: 200;
     }
     h3 {
@@ -49,13 +50,49 @@ const Weather = styled.div`
       font-size: 0.75rem;
     }
     svg {
-      width: 80px;
-      height: 80px;
+      width: 10em;
+      height: 10em;
+    }
+    @media screen and (max-width: 1024px) {
+      flex-basis: 100%;
+    }
+    @media screen and (max-width: 768px) {
+      h2 {
+        font-size: 6em;
+        margin-left: 0.2em;
+      }
+      svg {
+        width: 9em;
+        height: 9em;
+      }
+    }
+    @media screen and (max-width: 640px) {
+      h2 {
+        font-size: 5em;
+        margin-left: 0.18;
+      }
+      svg {
+        width: 8em;
+        height: 8em;
+      }
+    }
+    @media screen and (max-width: 550px) {
+      h2 {
+        font-size: 3.5em;
+        margin-left: 0.18em;
+      }
+      svg {
+        width: 5em;
+        height: 5em;
+      }
     }
   }
   .detail {
-    p + p {
-      margin-left: 1.5rem;
+    flex-basis: 300px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    p {
+      margin-right: 1.5rem;
     }
     .icon {
       display: inline-flex;
@@ -74,6 +111,11 @@ const Weather = styled.div`
         height: 1.6rem;
       }
     }
+    @media screen and (max-width: 1024px) {
+      margin-left: 0;
+      margin-top: 40px;
+      justify-content: center;
+    }
   }
 `;
 
@@ -87,10 +129,6 @@ const CurrentWeather = ({ current, daily }) => {
   const sunsetAt = getTime(sunset);
   return (
     <Weather>
-      <h5>
-        {getDate(new Date().getTime() / 1000)}{' '}
-        {getTime(new Date().getTime() / 1000)}
-      </h5>
       <div className="main">
         <Icon iconId={icon} />
         <h2>{Math.round(temp)}&deg;C</h2>
@@ -103,14 +141,14 @@ const CurrentWeather = ({ current, daily }) => {
             <MinTempIcon />
             Low
           </span>
-          {min}
+          {Math.round(min)}&deg;C
         </p>
         <p>
           <span className="icon">
             <MaxTempIcon />
             High
           </span>
-          {max}
+          {Math.round(max)}&deg;C
         </p>
         <p>
           <span className="icon short">
