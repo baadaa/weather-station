@@ -37,7 +37,6 @@ const Weather = styled.div`
     }
     h2 {
       font-size: 7em;
-      margin-left: 0.25em;
       font-weight: 200;
     }
     h3 {
@@ -50,8 +49,8 @@ const Weather = styled.div`
       font-size: 0.75rem;
     }
     svg {
-      width: 10em;
-      height: 10em;
+      width: 15em;
+      height: 15em;
     }
     @media screen and (max-width: 1024px) {
       flex-basis: 100%;
@@ -59,31 +58,28 @@ const Weather = styled.div`
     @media screen and (max-width: 768px) {
       h2 {
         font-size: 6em;
-        margin-left: 0.2em;
       }
       svg {
-        width: 9em;
-        height: 9em;
+        width: 13em;
+        height: 13em;
       }
     }
     @media screen and (max-width: 640px) {
       h2 {
         font-size: 5em;
-        margin-left: 0.18;
       }
       svg {
-        width: 8em;
-        height: 8em;
+        width: 11em;
+        height: 11em;
       }
     }
     @media screen and (max-width: 550px) {
       h2 {
         font-size: 3.5em;
-        margin-left: 0.18em;
       }
       svg {
-        width: 5em;
-        height: 5em;
+        width: 8em;
+        height: 8em;
       }
     }
   }
@@ -130,6 +126,9 @@ const CurrentWeather = ({ current, daily }) => {
   return (
     <Weather>
       <div className="main">
+        {/* {iconList.[icon]} */}
+        {/* {console.log(iconList[icon], icon)} */}
+
         <Icon iconId={icon} />
         <h2>{Math.round(temp)}&deg;C</h2>
         <h3>{main}</h3>

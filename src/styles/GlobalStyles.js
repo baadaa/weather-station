@@ -36,12 +36,27 @@ const GlobalStyles = createGlobalStyle`
     --nav-highlight: var(--hp-coolgray);
     --text-color: var(--hp-indigo);
     --menu-bg: var(--hp-off-white);
+    --day-clear: var(--hp-gold);
+    --night-clear: var(--hp-gold);
+    --day-cloud: var(--hp-coolgray);
+    --bg: var(--hp-off-white);
+    --sun: var(--hp-gold);
+    --moon: var(--hp-gold);
+    --cloud: var(--hp-medium-gray);
+    --star: var(--hp-yellow);
+    --precip: var(--hp-medium-gray);
     &.dark {
-      background: var(--hp-cold-black);
+      --bg: var(--hp-cold-black);
+      background: var(--bg);
       color:var(--hp-off-white);
       --nav-highlight: var(--hp-indigo);
       --text-color: var(--hp-medium-gray);
       --menu-bg: var(--hp-navy);
+      --day-clear: var(--hp-navy);
+      --night-clear: var(--hp-navy);
+      --cloud: var(--hp-navy);
+      --star: var(--hp-coolgray);
+      --precip: var(--hp-coolgray);
     }
     margin: 0;
     padding: 0;
