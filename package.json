@@ -1,13 +1,14 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "baldie-weather-via-owm",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Just another weather app.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "B <bumhan.yu@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.11.1",
+    "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.24.63",
+    "gatsby": "^2.28.2",
     "gatsby-image": "^2.4.19",
     "gatsby-plugin-manifest": "^2.4.30",
     "gatsby-plugin-offline": "^3.2.28",

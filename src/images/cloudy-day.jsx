@@ -1,75 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Svg = styled.svg`
-  @keyframes am-weather-cloud-2 {
-    0% {
-      transform: translate(0px, 0px);
-    }
-
-    50% {
-      transform: translate(2px, 0px);
-    }
-
-    100% {
-      transform: translate(0px, 0px);
-    }
-  }
-
-  .am-weather-cloud-2 {
-    animation-name: am-weather-cloud-2;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  /*
-** SUN
-*/
-  @keyframes am-weather-sun {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  .am-weather-sun {
-    animation-name: am-weather-sun;
-    animation-duration: 9s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  @keyframes am-weather-sun-shiny {
-    0% {
-      stroke-dasharray: 3px 10px;
-      stroke-dashoffset: 0px;
-    }
-
-    50% {
-      stroke-dasharray: 0.1px 10px;
-      stroke-dashoffset: -1px;
-    }
-
-    100% {
-      stroke-dasharray: 3px 10px;
-      stroke-dashoffset: 0px;
-    }
-  }
-
-  .am-weather-sun-shiny line {
-    animation-name: am-weather-sun-shiny;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-`;
+import '../styles/iconStyles.css';
 
 export const Icon02d = () => (
-  <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
     <defs>
       <filter id="blur" width="200%" height="200%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -213,5 +146,5 @@ export const Icon02d = () => (
         </g>
       </g>
     </g>
-  </Svg>
+  </svg>
 );

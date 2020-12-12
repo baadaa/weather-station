@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { format } from 'date-fns';
 import { ColorModeContext, ViewContext } from '../hooks/contexts';
 import GlobalStyles from '../styles/GlobalStyles';
-import { getTime, getDate } from '../utils/timeUtils';
+// import { getTime, getDate } from '../utils/timeUtils';
 
 import Nav from './nav';
-import './layout.css';
 
 const Wrapper = styled.div`
   position: relative;
@@ -17,13 +17,20 @@ const Wrapper = styled.div`
   justify-content: center;
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  h5.time {
-    text-align: center;
-    margin: 0;
+  .currentViewInfo {
     position: absolute;
-    top: 2rem;
-    left: 0;
-    width: 100%;
+    top: 0.75rem;
+    left: 1rem;
+    h3 {
+      font-size: 1rem;
+      text-align: left;
+      text-transform: capitalize;
+    }
+    h5 {
+      margin-bottom: 0.3rem;
+      font-size: 0.75rem;
+      opacity: 0.4;
+    }
   }
 `;
 const Layout = ({ children }) => {
@@ -39,7 +46,7 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     const timerID = setInterval(() => tick(), 1000);
-
+    console.log('timer tick');
     return function cleanup() {
       clearInterval(timerID);
     };
@@ -51,9 +58,12 @@ const Layout = ({ children }) => {
       <ColorModeContext.Provider value={colorMode}>
         <ViewContext.Provider value={viewMode}>
           <Nav />
-          <h5 className="time">
-            {getDate(date / 1000)} {getTime(date / 1000)}
-          </h5>
+          <div className="currentViewInfo">
+            <h5>
+              {format(date, 'PP (ccc)')} • {format(date, 'pp')}
+            </h5>
+            <h3>{view} weather</h3>
+          </div>
           <main>{children}</main>
           <footer
             style={{

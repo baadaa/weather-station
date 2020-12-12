@@ -1,96 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Svg = styled.svg`
-  @keyframes am-weather-cloud-2 {
-    0% {
-      transform: translate(0px, 0px);
-    }
-
-    50% {
-      transform: translate(2px, 0px);
-    }
-
-    100% {
-      transform: translate(0px, 0px);
-    }
-  }
-
-  .am-weather-cloud-2 {
-    animation-name: am-weather-cloud-2;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  /*
-** SNOW
-*/
-  @keyframes am-weather-snow {
-    0% {
-      transform: translateX(0) translateY(0);
-    }
-
-    33.33% {
-      transform: translateX(-1.2px) translateY(2px);
-    }
-
-    66.66% {
-      transform: translateX(1.4px) translateY(4px);
-      opacity: 1;
-    }
-
-    100% {
-      transform: translateX(-1.6px) translateY(6px);
-      opacity: 0;
-    }
-  }
-
-  @keyframes am-weather-snow-reverse {
-    0% {
-      transform: translateX(0) translateY(0);
-    }
-
-    33.33% {
-      transform: translateX(1.2px) translateY(2px);
-    }
-
-    66.66% {
-      transform: translateX(-1.4px) translateY(4px);
-      opacity: 1;
-    }
-
-    100% {
-      transform: translateX(1.6px) translateY(6px);
-      opacity: 0;
-    }
-  }
-
-  .am-weather-snow-1 {
-    animation-name: am-weather-snow;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  .am-weather-snow-2 {
-    animation-name: am-weather-snow;
-    animation-delay: 1.2s;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  .am-weather-snow-3 {
-    animation-name: am-weather-snow-reverse;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-`;
+import '../styles/iconStyles.css';
 
 export const Icon13 = () => (
-  <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
     <defs>
       <filter id="blur" width="200%" height="200%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -262,5 +174,5 @@ export const Icon13 = () => (
         </g>
       </g>
     </g>
-  </Svg>
+  </svg>
 );

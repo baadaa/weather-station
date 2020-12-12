@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap");
+
   :root {
     --hp-light-blue: #0d9bd5;
     --hp-navy: #0c3258;
@@ -27,11 +29,28 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family: Poppins, sans-serif;
     padding: 0;
-    /* font-size: 10px; */
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font: 20px/1.45 "Poppins", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    overflow-y: scroll;    /* font-size: 10px; */
+    @media only screen and (max-width: 480px) {
+      font-size: 100%;
+    }
   }
   body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: inherit;
+    font-weight: normal;
+    word-wrap: break-word;
+    font-kerning: normal;
+    -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+    -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+    -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+    font-feature-settings: "kern", "liga", "clig", "calt";
     transition: background .2s, color .2s;
-    background: var(--hp-off-white);
     color: var(--hp-indigo);
     --nav-highlight: var(--hp-coolgray);
     --text-color: var(--hp-indigo);
@@ -45,6 +64,7 @@ const GlobalStyles = createGlobalStyle`
     --cloud: var(--hp-medium-gray);
     --star: var(--hp-yellow);
     --precip: var(--hp-medium-gray);
+    background: var(--bg);
     &.dark {
       --bg: var(--hp-cold-black);
       background: var(--bg);
@@ -69,6 +89,51 @@ const GlobalStyles = createGlobalStyle`
   p {
     font-size: 1.5rem;
   }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    text-rendering: optimizeLegibility;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 2.25rem;
+  }
+  h2 {
+    font-size: 1.62671rem;
+  }
+  h3 {
+    font-size: 1.38316rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  h5 {
+    font-size: 0.85028rem;
+  }
+  h6 {
+    font-size: 0.78405rem;
+  }
+  hr {
+  box-sizing: content-box;
+  overflow: visible;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: calc(1.45rem - 1px);
+  background: hsla(0, 0%, 0%, 0.2);
+  border: none;
+  height: 1px;
+}
+button {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+}
 `;
 
 export default GlobalStyles;

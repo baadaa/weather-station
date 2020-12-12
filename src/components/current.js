@@ -11,9 +11,6 @@ import Icon, {
 } from './icons';
 
 const Weather = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   .main,
   .detail {
     display: flex;

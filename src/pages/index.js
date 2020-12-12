@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
 
 import CurrentWeather from '../components/current';
 import DailyWeather from '../components/daily';
@@ -33,7 +32,6 @@ const IndexPage = () => {
   }, []);
   return (
     <Layout>
-      <SEO title="Home" />
       {!isLoading && !!weatherData.current ? (
         <>
           <CurrentWeather

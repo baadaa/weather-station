@@ -1,81 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Svg = styled.svg`
-  /*
-** RAIN
-*/
-  @keyframes am-weather-rain {
-    0% {
-      stroke-dashoffset: 0;
-    }
-
-    100% {
-      stroke-dashoffset: -100;
-    }
-  }
-
-  .am-weather-rain-1 {
-    animation-name: am-weather-rain;
-    animation-duration: 8s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  .am-weather-rain-2 {
-    animation-name: am-weather-rain;
-    animation-delay: 0.25s;
-    animation-duration: 8s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-  /*
-** SUN
-*/
-  @keyframes am-weather-sun {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  .am-weather-sun {
-    animation-name: am-weather-sun;
-    animation-duration: 9s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  @keyframes am-weather-sun-shiny {
-    0% {
-      stroke-dasharray: 3px 10px;
-      stroke-dashoffset: 0px;
-    }
-
-    50% {
-      stroke-dasharray: 0.1px 10px;
-      stroke-dashoffset: -1px;
-    }
-
-    100% {
-      stroke-dasharray: 3px 10px;
-      stroke-dashoffset: 0px;
-    }
-  }
-
-  .am-weather-sun-shiny line {
-    animation-name: am-weather-sun-shiny;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-`;
+import '../styles/iconStyles.css';
 
 export const Icon10d = () => (
-  <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
     <defs>
       <filter id="blur" width="200%" height="200%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -260,5 +187,5 @@ export const Icon10d = () => (
         />
       </g>
     </g>
-  </Svg>
+  </svg>
 );

@@ -1,38 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Svg = styled.svg`
-  /*
-** RAIN
-*/
-  @keyframes am-weather-rain {
-    0% {
-      stroke-dashoffset: 0;
-    }
-
-    100% {
-      stroke-dashoffset: -100;
-    }
-  }
-
-  .am-weather-rain-1 {
-    animation-name: am-weather-rain;
-    animation-duration: 8s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  .am-weather-rain-2 {
-    animation-name: am-weather-rain;
-    animation-delay: 0.25s;
-    animation-duration: 8s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-`;
+import '../styles/iconStyles.css';
 
 export const Icon09 = () => (
-  <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
     <defs>
       <filter id="blur" width="200%" height="200%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -101,5 +71,5 @@ export const Icon09 = () => (
         />
       </g>
     </g>
-  </Svg>
+  </svg>
 );

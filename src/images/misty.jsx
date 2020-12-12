@@ -1,40 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Svg = styled.svg`
-  /*
-** RAIN
-*/
-  @keyframes am-weather-rain {
-    0% {
-      stroke-dashoffset: 0;
-    }
-
-    100% {
-      stroke-dashoffset: -100;
-    }
-  }
-
-  .am-weather-rain-1 {
-    animation-name: am-weather-rain;
-    animation-duration: 60s;
-    animation-timing-function: linear;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-  }
-
-  .am-weather-rain-2 {
-    animation-name: am-weather-rain;
-    animation-delay: 0.25s;
-    animation-duration: 60s;
-    animation-timing-function: linear;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-  }
-`;
+import '../styles/iconStyles.css';
 
 export const Icon50 = () => (
-  <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
     <defs>
       <filter id="blur" width="200%" height="200%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -51,9 +19,9 @@ export const Icon50 = () => (
     <g filter="url(#blur)" id="rainy-6">
       <g transform="translate(31,36), rotate(90), scale(1.1)">
         <line
-          className="am-weather-rain-1"
+          className="am-weather-misty-1"
           fill="none"
-          stroke="var(--precip)"
+          stroke="var(--cloud)"
           strokeDasharray="2,4"
           strokeLinecap="round"
           strokeWidth="2"
@@ -64,9 +32,9 @@ export const Icon50 = () => (
           y2="16"
         />
         <line
-          className="am-weather-rain-2"
+          className="am-weather-misty-2"
           fill="none"
-          stroke="var(--precip)"
+          stroke="var(--cloud)"
           strokeDasharray="16,4"
           strokeLinecap="round"
           strokeWidth="2"
@@ -77,9 +45,9 @@ export const Icon50 = () => (
           y2="16"
         />
         <line
-          className="am-weather-rain-1"
+          className="am-weather-misty-1"
           fill="none"
-          stroke="var(--precip)"
+          stroke="var(--cloud)"
           strokeDasharray="12,4"
           strokeLinecap="round"
           strokeWidth="2"
@@ -90,9 +58,9 @@ export const Icon50 = () => (
           y2="16"
         />
         <line
-          className="am-weather-rain-1"
+          className="am-weather-misty-1"
           fill="none"
-          stroke="var(--precip)"
+          stroke="var(--cloud)"
           strokeDasharray="2,4"
           strokeLinecap="round"
           strokeWidth="2"
@@ -104,5 +72,5 @@ export const Icon50 = () => (
         />
       </g>
     </g>
-  </Svg>
+  </svg>
 );

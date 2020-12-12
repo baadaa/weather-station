@@ -1,92 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Svg = styled.svg`
-  @keyframes am-weather-cloud-2 {
-    0% {
-      transform: translate(0px, 0px);
-    }
-
-    50% {
-      transform: translate(2px, 0px);
-    }
-
-    100% {
-      transform: translate(0px, 0px);
-    }
-  }
-
-  .am-weather-cloud-2 {
-    animation-name: am-weather-cloud-2;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  /*
-** MOON
-*/
-  @keyframes am-weather-moon {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    50% {
-      transform: rotate(15deg);
-    }
-
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-
-  .am-weather-moon {
-    animation-name: am-weather-moon;
-    animation-duration: 6s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    transform-origin: 12.5px 15.15px 0; /* TODO FF CENTER ISSUE */
-  }
-
-  @keyframes am-weather-moon-star-1 {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .am-weather-moon-star-1 {
-    animation-name: am-weather-moon-star-1;
-    animation-delay: 3s;
-    animation-duration: 5s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-  }
-
-  @keyframes am-weather-moon-star-2 {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .am-weather-moon-star-2 {
-    animation-name: am-weather-moon-star-2;
-    animation-delay: 5s;
-    animation-duration: 4s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-  }
-`;
+import '../styles/iconStyles.css';
 
 export const Icon02n = () => (
-  <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
     <defs>
       <filter id="blur" width="200%" height="200%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -142,5 +58,5 @@ export const Icon02n = () => (
         </g>
       </g>
     </g>
-  </Svg>
+  </svg>
 );
