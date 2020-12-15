@@ -21,6 +21,7 @@ const Nav = styled.nav`
     border-radius: 0.5rem;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
     margin: 0;
+    z-index: 999;
     opacity: 0;
     transition: transform 0.3s, opacity 0.3s;
     pointer-events: none;

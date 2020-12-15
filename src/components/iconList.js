@@ -11,3 +11,6 @@ export * from '../images/rainy-night';
 export * from '../images/thunderstorm';
 export * from '../images/snowy';
 export * from '../images/misty';
+export * from '../images/precipitation';
+export * from '../images/sunset';
+export * from '../images/sunrise';

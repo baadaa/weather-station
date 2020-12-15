@@ -52,6 +52,7 @@ const GlobalStyles = createGlobalStyle`
     font-feature-settings: "kern", "liga", "clig", "calt";
     transition: background .2s, color .2s;
     color: var(--hp-indigo);
+    --content: var(--hp-indigo);
     --nav-highlight: var(--hp-coolgray);
     --text-color: var(--hp-indigo);
     --menu-bg: var(--hp-off-white);
@@ -64,11 +65,13 @@ const GlobalStyles = createGlobalStyle`
     --cloud: var(--hp-medium-gray);
     --star: var(--hp-yellow);
     --precip: var(--hp-medium-gray);
+    --thermo: var(--hp-coolgray);
     background: var(--bg);
     &.dark {
       --bg: var(--hp-cold-black);
       background: var(--bg);
       color:var(--hp-off-white);
+      --content: var(--hp-off-white);
       --nav-highlight: var(--hp-indigo);
       --text-color: var(--hp-medium-gray);
       --menu-bg: var(--hp-navy);
@@ -77,6 +80,7 @@ const GlobalStyles = createGlobalStyle`
       --cloud: var(--hp-navy);
       --star: var(--hp-coolgray);
       --precip: var(--hp-coolgray);
+      --thermo: var(--hp-navy);
     }
     margin: 0;
     padding: 0;

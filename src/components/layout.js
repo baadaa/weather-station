@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { format } from 'date-fns';
 import { ColorModeContext, ViewContext } from '../hooks/contexts';
 import GlobalStyles from '../styles/GlobalStyles';
-// import { getTime, getDate } from '../utils/timeUtils';
 
 import Nav from './nav';
 
@@ -16,6 +15,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
+  padding-top: 5rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   .currentViewInfo {
     position: absolute;

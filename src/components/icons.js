@@ -1,9 +1,6 @@
 import React from 'react';
-import sunrise from '../images/sunrise.svg';
-import sunset from '../images/sunset.svg';
 import minTemp from '../images/minTemp.svg';
 import maxTemp from '../images/maxTemp.svg';
-import precipitation from '../images/precipitation.svg';
 
 import {
   Icon01d,
@@ -17,6 +14,9 @@ import {
   Icon11,
   Icon13,
   Icon50,
+  PrecipIcon,
+  SunsetIcon,
+  SunriseIcon,
 } from './iconList';
 
 const iconList = [
@@ -44,18 +44,6 @@ const Icon = ({ iconId }) => {
   return targetIcon.icon;
 };
 
-const SunriseIcon = () => (
-  <svg>
-    <use xlinkHref={`#${sunrise.id}`} />
-  </svg>
-);
-
-const SunsetIcon = () => (
-  <svg>
-    <use xlinkHref={`#${sunset.id}`} />
-  </svg>
-);
-
 const MinTempIcon = () => (
   <svg>
     <use xlinkHref={`#${minTemp.id}`} />
@@ -65,12 +53,6 @@ const MinTempIcon = () => (
 const MaxTempIcon = () => (
   <svg>
     <use xlinkHref={`#${maxTemp.id}`} />
-  </svg>
-);
-
-const PrecipIcon = () => (
-  <svg>
-    <use xlinkHref={`#${precipitation.id}`} />
   </svg>
 );
 
