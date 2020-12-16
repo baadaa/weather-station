@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { format } from 'date-fns';
 import { ColorModeContext, ViewContext } from '../hooks/contexts';
+import { useInterval } from '../hooks/useInterval';
 import GlobalStyles from '../styles/GlobalStyles';
 
 import Nav from './nav';
@@ -13,7 +15,7 @@ const Wrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   padding: 1rem;
   padding-top: 5rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -44,16 +46,19 @@ const Layout = ({ children }) => {
     setDate(new Date());
   };
 
-  useEffect(() => {
-    const timerID = setInterval(() => tick(), 1000);
-    console.log('timer tick');
-    return function cleanup() {
-      clearInterval(timerID);
-    };
-  });
+  useInterval(() => {
+    tick();
+  }, 1000);
 
   return (
     <Wrapper>
+      <Helmet>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <GlobalStyles />
       <ColorModeContext.Provider value={colorMode}>
         <ViewContext.Provider value={viewMode}>

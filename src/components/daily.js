@@ -159,15 +159,14 @@ const DailyWeather = ({ daily }) => {
   const maxAll = Math.max(...daily.map(day => Math.round(day.temp.max)));
   const minAll = Math.min(...daily.map(day => Math.round(day.temp.min)));
   const totalRange = maxAll - minAll;
-  console.log(maxAll, minAll);
   const str = daily.map(day => {
     const sunrise = format(day.sunrise * 1000, 'H:mm');
     const sunset = format(day.sunset * 1000, 'H:mm');
     const { pop } = day;
     const { max: dayHigh, min: dayLow } = day.temp;
     const { icon, main } = day.weather[0];
-    const topPos = `${((maxAll - dayHigh) / totalRange) * 100}%`;
-    const bottomPos = `${((dayLow - minAll) / totalRange) * 100}%`;
+    const topPos = `${((maxAll - Math.round(dayHigh)) / totalRange) * 100}%`;
+    const bottomPos = `${((Math.round(dayLow) - minAll) / totalRange) * 100}%`;
     return (
       <div className="weekday" key={day.dt}>
         <div className="dateblock">
