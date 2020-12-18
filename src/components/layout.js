@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { format } from 'date-fns';
@@ -49,6 +49,30 @@ const Layout = ({ children }) => {
   useInterval(() => {
     tick();
   }, 1000);
+
+  const loadPreference = () => {
+    if (!JSON.parse(localStorage.getItem('b_owm_theme'))) {
+      setTheme('light');
+      setView('current');
+      return null;
+    }
+    const currentTheme = JSON.parse(localStorage.getItem('b_owm_theme'));
+    setTheme(currentTheme);
+    document.body.className = currentTheme === 'dark' ? 'dark' : '';
+    setView(JSON.parse(localStorage.getItem('b_owm_view')));
+  };
+  const savePreference = () => {
+    localStorage.setItem('b_owm_theme', JSON.stringify(theme));
+    localStorage.setItem('b_owm_view', JSON.stringify(view));
+  };
+
+  useEffect(() => {
+    loadPreference();
+  }, []);
+
+  useEffect(() => {
+    savePreference();
+  }, [theme, view]);
 
   return (
     <Wrapper>

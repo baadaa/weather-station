@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import '../styles/hamburgers.css';
 import { ColorModeContext, ViewContext } from '../hooks/contexts';
@@ -19,7 +19,7 @@ const Nav = styled.nav`
     list-style: none;
     padding: 0.5rem 0;
     border-radius: 0.5rem;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.25);
     margin: 0;
     z-index: 999;
     opacity: 0;
@@ -39,6 +39,7 @@ const Nav = styled.nav`
       color: var(--text-color);
       border: none;
       cursor: pointer;
+      box-sizing: border-box;
       display: block;
       text-transform: capitalize;
       padding: 0.25rem 1rem;
@@ -46,10 +47,15 @@ const Nav = styled.nav`
       text-align: left;
       white-space: nowrap;
       background: transparent;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
       &:focus {
         outline: none;
         color: var(--text-color);
         background: var(--nav-highlight);
+      }
+      &[data-iscurrent='true'] {
+        border-left: 5px solid var(--hp-light-blue);
       }
     }
     hr {
@@ -80,11 +86,15 @@ const Nav = styled.nav`
 function Header() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { theme, setTheme } = useContext(ColorModeContext);
-  const { setView } = useContext(ViewContext);
+  const { view, setView } = useContext(ViewContext);
   const views = ['current', 'daily', 'hourly'];
   const colorSwitcher = currentTheme => {
     setTheme(currentTheme === 'dark' ? 'light' : 'dark');
     document.body.className = currentTheme === 'light' ? 'dark' : '';
+  };
+  const viewSwitcher = viewTarget => {
+    setView(viewTarget);
+    setIsCollapsed(true);
   };
   return (
     <Nav>
@@ -106,7 +116,11 @@ function Header() {
       <ul data-active={!isCollapsed} className="nav">
         {views.map(viewMode => (
           <li key={viewMode}>
-            <button type="button" onClick={() => setView(viewMode)}>
+            <button
+              data-iscurrent={viewMode === view}
+              type="button"
+              onClick={() => viewSwitcher(viewMode)}
+            >
               {viewMode} Weather
             </button>
           </li>
