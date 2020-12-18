@@ -8,6 +8,7 @@ import { ViewContext } from '../hooks/contexts';
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 8.3%);
+  grid-row-gap: 20px;
   max-width: 100%;
   overflow-x: scroll;
   h5,
@@ -29,6 +30,7 @@ const Wrapper = styled.div`
   @media screen and (max-width: 1024px) {
     display: flex;
     flex-wrap: wrap;
+    grid-row-gap: 0;
   }
   .hour {
     flex-basis: 100%;
@@ -43,6 +45,9 @@ const Wrapper = styled.div`
       fill: var(--precip);
     }
     @media screen and (max-width: 1024px) {
+      h5 {
+        flex: 0 0 50px;
+      }
       display: flex;
       flex-wrap: wrap;
       max-width: 600px;
@@ -65,6 +70,15 @@ const Wrapper = styled.div`
     @media screen and (max-width: 1024px) {
       flex-direction: row;
       padding: 0 1rem;
+    }
+  }
+  .summary {
+    @media screen and (max-width: 1024px) {
+      flex: 0 0 200px;
+      padding: 0;
+    }
+    @media screen and (max-width: 480px) {
+      flex: 0 0 140px;
     }
   }
   .minmax {
@@ -103,6 +117,33 @@ const Wrapper = styled.div`
     background: var(--thermo);
     position: absolute;
     left: calc(50% - 1.5px);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    &::after,
+    &::before {
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      transform: translateX(-3px);
+      border-radius: 9px;
+      content: '';
+      background: var(--thermo);
+      top: 0;
+      left: 0;
+      @media screen and (max-width: 1024px) {
+        transform: translateY(-3px);
+      }
+    }
+    &::after {
+      bottom: 0;
+      top: auto;
+      @media screen and (max-width: 1024px) {
+        right: 0;
+        left: auto;
+        transform: translateY(3px);
+      }
+    }
+
     @media screen and (max-width: 1024px) {
       height: 3px;
       width: auto;

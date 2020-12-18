@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useInterval } from '../hooks/useInterval';
 
 import Layout from '../components/layout';
 
@@ -11,6 +12,7 @@ import OWM_API from '../utils/owmApiConfig';
 const IndexPage = () => {
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [updatedTime, setUpdatedTime] = useState('');
   const { key, url, units, lat, lon } = OWM_API;
   const fetchWeather = () => {
     setIsLoading(true);
@@ -20,6 +22,7 @@ const IndexPage = () => {
       .then(response => response.json())
       .then(data => {
         setIsLoading(false);
+        setUpdatedTime(new Date().toLocaleTimeString('en-US'));
         setWeatherData(data);
       });
   };
@@ -30,8 +33,11 @@ const IndexPage = () => {
       setIsLoading(false);
     }
   }, []);
+  useInterval(() => {
+    fetchWeather();
+  }, 600000);
   return (
-    <Layout>
+    <Layout updatedTime={updatedTime}>
       {!isLoading && !!weatherData.current ? (
         <>
           <CurrentWeather
@@ -44,9 +50,6 @@ const IndexPage = () => {
       ) : (
         <div>Loading</div>
       )}
-      <button type="button" onClick={fetchWeather}>
-        Fetch
-      </button>
     </Layout>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { format } from 'date-fns';
@@ -15,10 +15,8 @@ const Wrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   padding: 1rem;
-  padding-top: 5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 6rem;
   .currentViewInfo {
     position: absolute;
     top: 0.75rem;
@@ -33,9 +31,32 @@ const Wrapper = styled.div`
       font-size: 0.75rem;
       opacity: 0.4;
     }
+    h6 {
+      font-size: 0.65rem;
+      margin-top: 0.4rem;
+      opacity: 0.4;
+      font-weight: 400;
+    }
+  }
+  .lastUpdate {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: 'Automatically updates every 10 minutes';
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      font-size: smaller;
+      width: 300px;
+    }
+    &:hover::after {
+      opacity: 1;
+      transform: translateY(-1.2rem);
+    }
   }
 `;
-const Layout = ({ children }) => {
+const Layout = ({ updatedTime, children }) => {
   const [theme, setTheme] = useState('light');
   const [view, setView] = useState('current');
   const [date, setDate] = useState(new Date());
@@ -91,27 +112,33 @@ const Layout = ({ children }) => {
             <h5>
               {format(date, 'PP (ccc)')} • {format(date, 'pp')}
             </h5>
-            <h3>{view} weather</h3>
+            <h3>{view} weather </h3>
           </div>
           <main>{children}</main>
           <footer
             style={{
               position: 'absolute',
               bottom: 0,
-              right: 0,
+              right: '1rem',
+              left: '1rem',
+              display: 'flex',
+              justifyContent: 'space-between',
+              color: 'var(--content)',
               height: '1rem',
-              opacity: 0.5,
-              border: '1px solid red',
+              opacity: 0.4,
               fontSize: 'small',
             }}
           >
-            © {new Date().getFullYear()}, {` `}
-            <a
-              style={{ textDecoration: 'none', color: 'white' }}
-              href="https://www.basinbald.com"
-            >
-              Bumhan Yu
-            </a>
+            <span className="lastUpdate">Last updated at {updatedTime}</span>
+            <span>
+              © {new Date().getFullYear()}, {` `}
+              <a
+                style={{ textDecoration: 'none', color: 'var(--content)' }}
+                href="https://www.basinbald.com"
+              >
+                Bumhan Yu
+              </a>
+            </span>
           </footer>
         </ViewContext.Provider>
       </ColorModeContext.Provider>
