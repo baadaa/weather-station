@@ -103,6 +103,11 @@ const Layout = ({ updatedTime, children }) => {
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <title>Baldie Weather</title>
+        <meta
+          name="description"
+          content="Just another weather app via OpenWeatherMap"
+        />
       </Helmet>
       <GlobalStyles />
       <ColorModeContext.Provider value={colorMode}>
