@@ -1,6 +1,4 @@
 import React from 'react';
-import minTemp from '../images/minTemp.svg';
-import maxTemp from '../images/maxTemp.svg';
 
 import {
   Icon01d,
@@ -44,25 +42,6 @@ const Icon = ({ iconId }) => {
   return targetIcon.icon;
 };
 
-const MinTempIcon = () => (
-  <svg>
-    <use xlinkHref={`#${minTemp.id}`} />
-  </svg>
-);
-
-const MaxTempIcon = () => (
-  <svg>
-    <use xlinkHref={`#${maxTemp.id}`} />
-  </svg>
-);
-
 export default Icon;
 
-export {
-  iconList,
-  SunriseIcon,
-  SunsetIcon,
-  MinTempIcon,
-  MaxTempIcon,
-  PrecipIcon,
-};
+export { iconList, SunriseIcon, SunsetIcon, PrecipIcon };
