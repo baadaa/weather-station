@@ -177,15 +177,12 @@ const HourlyWeather = ({ hourly }) => {
   const isSmaller = useMediaQuery({ query: '(max-width: 1024px)' });
   if (view !== 'hourly') return null;
   const first12hours = hourly.slice(0, 24);
-  console.log(hourly[0]);
   const maxAll = Math.max(...first12hours.map(day => Math.round(day.temp)));
   const minAll = Math.min(...first12hours.map(day => Math.round(day.temp)));
   const totalRange = maxAll - minAll;
-  console.log(maxAll, minAll, totalRange);
   const str = first12hours.map(hour => {
     const { dt, pop, temp, weather } = hour;
     const { main, icon } = weather[0];
-    console.log('maxAll', maxAll, 'temp', temp);
     const topPos = `${((maxAll - Math.round(temp)) / totalRange) * 100}%`;
     return (
       <div className="hour" key={dt}>
