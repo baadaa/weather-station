@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import '../styles/hamburgers.css';
 import { ColorModeContext, ViewContext } from '../hooks/contexts';
 
-const Nav = styled.nav`
+const NavStyles = styled.nav`
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
@@ -83,7 +83,7 @@ const Nav = styled.nav`
   }
 `;
 
-function Header() {
+function Nav() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { theme, setTheme } = useContext(ColorModeContext);
   const { view, setView } = useContext(ViewContext);
@@ -97,7 +97,7 @@ function Header() {
     setIsCollapsed(true);
   };
   return (
-    <Nav>
+    <NavStyles>
       <div className="buttonArea">
         <button
           className={
@@ -134,8 +134,8 @@ function Header() {
           </button>
         </li>
       </ul>
-    </Nav>
+    </NavStyles>
   );
 }
 
-export default Header;
+export default Nav;
