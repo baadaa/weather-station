@@ -118,6 +118,7 @@ const Layout = ({ updatedTime, children }) => {
               {format(date, 'PP (ccc)')} • {format(date, 'pp')}
             </h5>
             <h3>{view} weather </h3>
+            <h6>Cortlandt Manor, NY</h6>
           </div>
           <main>{children}</main>
           <footer
