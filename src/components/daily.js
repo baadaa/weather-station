@@ -179,7 +179,7 @@ const DailyWeather = ({ daily }) => {
             <div>
               <h6>{main}</h6>
               <p>
-                <PrecipIcon /> {pop * 100}%
+                <PrecipIcon /> {Math.round(pop * 100)}%
               </p>
             </div>
           </div>
